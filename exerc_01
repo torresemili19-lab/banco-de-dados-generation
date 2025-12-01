@@ -1,0 +1,35 @@
+-- ATIVIDADE 01 - SISTEMA DE RH
+
+-- Criar banco de dados
+CREATE DATABASE rh_empresa;
+USE rh_empresa;
+
+-- Criar tabela de colaboradores
+CREATE TABLE colaboradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100),
+    salario DECIMAL(10,2),
+    departamento VARCHAR(100),
+    data_admissao DATE
+);
+
+-- Inserir no mínimo 5 registros
+INSERT INTO colaboradores (nome, cargo, salario, departamento, data_admissao)
+VALUES 
+("Ana Souza", "Analista de RH", 3200.00, "Recursos Humanos", "2022-01-15"),
+("Pedro Lima", "Assistente Administrativo", 1800.00, "Administrativo", "2023-03-10"),
+("João Silva", "Desenvolvedor Jr", 2500.00, "TI", "2021-11-05"),
+("Mariana Alves", "Gerente de Projetos", 7000.00, "TI", "2020-08-12"),
+("Lucas Rocha", "Auxiliar de Serviços", 1500.00, "Serviços Gerais", "2023-06-01");
+
+-- SELECT colaboradores com salário > 2000
+SELECT * FROM colaboradores WHERE salario > 2000;
+
+-- SELECT colaboradores com salário < 2000
+SELECT * FROM colaboradores WHERE salario < 2000;
+
+-- Atualizar um registro (exemplo: aumentar salário de Pedro)
+UPDATE colaboradores 
+SET salario = 2000.00 
+WHERE nome = "Pedro Lima";
